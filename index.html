@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+</head>
+
+<body>
+  <a-scene background="color:white">
+
+    <a-camera position="0 8 15"></a-camera>
+
+    <!-------------------------------------------Asset Management------------------------------------------->
+    <a-assets timeout="10000">
+
+      <a-asset-item id="man" src="./models/village_head/scene.gltf"></a-asset-item>
+
+      <a-asset-item id="cat" src="./models/toon_cat_free/scene.gltf"></a-asset-item>
+
+      <a-asset-item id="bench" src="./models/wooden_bench/scene.gltf"></a-asset-item>
+
+      <a-asset-item id="lamp" src="./models/lamp/scene.gltf"></a-asset-item>
+      
+      <img id="bg" src="./images/forest.jpeg">
+
+    </a-assets>
+
+    <a-sky src="#bg"></a-sky>
+
+    <!-------------------------------------Lights in the scene----------------------------------------------->
+
+    <!--Ambient-->
+    <a-entity light="type: ambient"></a-entity>
+
+
+    <!--Point-->
+    <a-entity light="type: point; cast-shadow: true; intensity: 2.35; distance: 50; decay: 2; color: yellow" position="-20 10 -10">
+    </a-entity>
+
+    <!--------------------------------------GLTF Models----------------------------------------------------------->
+
+    <!--Road-->
+    <a-plane src="images/road.jpeg" position="0 0 -4" rotation="-90 0 90" width="20" height="100" color="#7BC8A4"></a-plane>
+
+    <!--Man-->
+    <a-entity>
+      <a-entity position="0 2 2" rotation="0 55 0" scale="0.15 0.15 0.15" gltf-model="#man" shadow="cast: true;"></a-entity>
+    </a-entity>
+
+    <!--Bench-->
+    <a-entity>
+      <a-entity position="0 2 -3" rotation="0 180 0" scale="0.04 0.04 0.04" gltf-model="#bench" shadow="cast: true;"></a-entity>
+    </a-entity>
+
+    <!--Lamp-->
+    <a-entity>
+      <a-entity position="-17 2 -4" rotation="0 180 0" scale="2 2 2" gltf-model="#lamp" shadow="cast: true;"></a-entity>
+    </a-entity>
+
+    <!--Cat-->
+    <a-entity>
+      <a-entity position="14 2 2" rotation="0 -80 0" scale="0.01 0.01 0.01" gltf-model="#cat" shadow="cast: true;"></a-entity>
+    </a-entity>
+  
+    <!--------------------------------------END----------------------------------------------------------->
+  </a-scene>
+</body>
+
+</html>
